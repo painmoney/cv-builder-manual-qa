@@ -1,10 +1,10 @@
 # SQL
 
-Все запросы — read-only SELECT к staging `jerwfvhpoanoukxiyvwq`. Ниже приведены исторические результаты; повторные запросы при переработке документации не выполнялись.
+Все запросы используют только SELECT и обращаются к staging `jerwfvhpoanoukxiyvwq`. Ниже приведены исторические результаты; повторные запросы при переработке документации не выполнялись.
 
 ## Документы и связанные записи
 
-[resume-join.sql](resume-join.sql): SELECT / WHERE выбирает два синтетических документа; LEFT JOIN связывает четыре дочерние таблицы; GROUP BY и COUNT(DISTINCT) считают записи без умножения при JOIN; ORDER BY сортирует названия.
+[resume-join.sql](resume-join.sql): SELECT / WHERE выбирает два синтетических документа; LEFT JOIN связывает четыре дочерние таблицы; GROUP BY и COUNT(DISTINCT) позволяют посчитать записи каждой таблицы без повторного учёта из-за JOIN; ORDER BY сортирует названия.
 
 | Документ | revision | skills | education | experience | projects |
 |---|---:|---:|---:|---:|---:|

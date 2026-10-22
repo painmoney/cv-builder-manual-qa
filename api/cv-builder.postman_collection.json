@@ -43,7 +43,7 @@
     },
     {
       "key": "qa_origin",
-      "value": "http://127.0.0.1:5199"
+      "value": "https://cv-builder-qa.vercel.app"
     }
   ],
   "item": [
@@ -65,7 +65,7 @@
               }
             ],
             "url": "{{supabase_url}}/auth/v1/signup?redirect_to={{qa_origin}}/",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks.",
+            "description": "Регистрация тестового пользователя. Проверьте данные пользователя в ответе; доставку письма подтверждения нужно отдельно проверить в контролируемом почтовом ящике.",
             "body": {
               "mode": "raw",
               "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}",
@@ -92,7 +92,7 @@
               }
             ],
             "url": "{{supabase_url}}/auth/v1/token?grant_type=password",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks.",
+            "description": "Вход по email и паролю подтверждённого пользователя. При успехе сохраните access_token, refresh_token и user.id в локальные переменные.",
             "body": {
               "mode": "raw",
               "raw": "{\n  \"email\": \"{{email}}\",\n  \"password\": \"{{password}}\"\n}",
@@ -119,7 +119,7 @@
               }
             ],
             "url": "{{supabase_url}}/auth/v1/token?grant_type=refresh_token",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks.",
+            "description": "Обновление сессии по refresh_token. Проверьте, что ответ содержит новые токены, и замените ими значения в локальном окружении.",
             "body": {
               "mode": "raw",
               "raw": "{\n  \"refresh_token\": \"{{refresh_token}}\"\n}",
@@ -146,7 +146,7 @@
               }
             ],
             "url": "{{supabase_url}}/auth/v1/user",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Получение текущего пользователя по access_token. Сравните его ID с user_id своего тестового аккаунта."
           }
         },
         {
@@ -164,7 +164,7 @@
               }
             ],
             "url": "{{supabase_url}}/auth/v1/recover?redirect_to={{qa_origin}}/update-password",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks.",
+            "description": "Запрос письма для восстановления пароля. Успешный HTTP-ответ сам по себе не подтверждает доставку: отдельно проверьте письмо и переход на /update-password.",
             "body": {
               "mode": "raw",
               "raw": "{\n  \"email\": \"{{email}}\"\n}",
@@ -191,7 +191,7 @@
               }
             ],
             "url": "{{supabase_url}}/auth/v1/logout",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Завершение сессии пользователя. Проверьте статус ответа и отсутствие ошибки; для дальнейшей работы после выхода получите новую сессию."
           }
         }
       ]
@@ -214,7 +214,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/resumes?user_id=eq.{{user_id}}&select=id,title,template,revision,created_at,updated_at&order=updated_at.desc,id.asc",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Получение списка своих резюме. Сверьте ID и названия, а также порядок updated_at по убыванию и id по возрастанию при одинаковом времени."
           }
         },
         {
@@ -236,7 +236,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/rpc/create_resume_full",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks.",
+            "description": "Создание резюме с заполненными разделами; перед отправкой задайте новый resume_id в формате UUID. При успехе проверьте out_resume_id и out_revision=1.",
             "body": {
               "mode": "raw",
               "raw": "{\n  \"p_resume_id\": \"{{resume_id}}\",\n  \"p_title\": \"QA-A — Frontend Demo\",\n  \"p_template\": \"minimalist\",\n  \"p_data\": {\n    \"profile\": {\n      \"name\": \"Алексей Тестовый\",\n      \"email\": \"qa-a@example.test\",\n      \"about\": \"Синтетическое резюме для QA\",\n      \"avatarShape\": \"round\"\n    },\n    \"skills\": [\n      {\n        \"name\": \"React\",\n        \"level\": 3\n      }\n    ],\n    \"education\": [\n      {\n        \"institution\": \"Учебный университет\",\n        \"degree\": \"Бакалавр\",\n        \"years\": \"2020–2024\"\n      }\n    ],\n    \"experience\": [\n      {\n        \"company\": \"Example QA Lab\",\n        \"position\": \"Frontend developer\",\n        \"period\": \"2024–2025\",\n        \"description\": \"Демонстрационные интерфейсы\"\n      }\n    ],\n    \"github\": [],\n    \"projects\": [\n      {\n        \"id\": \"qa-project-a\",\n        \"name\": \"Demo task board\",\n        \"role\": \"Developer\",\n        \"techStack\": \"React\",\n        \"link\": \"https://example.test/task-board\",\n        \"period\": \"2025\",\n        \"description\": \"Учебный проект\"\n      }\n    ],\n    \"template\": \"minimalist\",\n    \"showSkillLevels\": true\n  }\n}",
@@ -263,7 +263,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/resumes?id=eq.{{resume_id}}&select=*",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Чтение резюме по resume_id. Проверьте ID, title, revision и данные; пустой массив может означать отсутствие документа или доступа к нему."
           }
         },
         {
@@ -285,7 +285,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/rpc/save_resume_full",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks.",
+            "description": "Сохранение резюме с текущим значением revision. Проверьте увеличение версии; при устаревшей версии ожидается ошибка P1005 без перезаписи документа.",
             "body": {
               "mode": "raw",
               "raw": "{\n  \"p_resume_id\": \"{{resume_id}}\",\n  \"p_title\": \"QA-A — Frontend Demo\",\n  \"p_template\": \"minimalist\",\n  \"p_data\": {\n    \"profile\": {\n      \"name\": \"Алексей Тестовый\",\n      \"email\": \"qa-a@example.test\",\n      \"about\": \"Синтетическое резюме для QA\",\n      \"avatarShape\": \"round\"\n    },\n    \"skills\": [\n      {\n        \"name\": \"React\",\n        \"level\": 3\n      }\n    ],\n    \"education\": [\n      {\n        \"institution\": \"Учебный университет\",\n        \"degree\": \"Бакалавр\",\n        \"years\": \"2020–2024\"\n      }\n    ],\n    \"experience\": [\n      {\n        \"company\": \"Example QA Lab\",\n        \"position\": \"Frontend developer\",\n        \"period\": \"2024–2025\",\n        \"description\": \"Демонстрационные интерфейсы\"\n      }\n    ],\n    \"github\": [],\n    \"projects\": [\n      {\n        \"id\": \"qa-project-a\",\n        \"name\": \"Demo task board\",\n        \"role\": \"Developer\",\n        \"techStack\": \"React\",\n        \"link\": \"https://example.test/task-board\",\n        \"period\": \"2025\",\n        \"description\": \"Учебный проект\"\n      }\n    ],\n    \"template\": \"minimalist\",\n    \"showSkillLevels\": true\n  },\n  \"p_expected_revision\": {{revision}}\n}",
@@ -316,7 +316,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/resumes?id=eq.{{resume_id}}&select=id",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Удаление только своего временного резюме. Сверьте возвращённый ID, затем запросом чтения убедитесь, что документ больше не возвращается."
           }
         }
       ]
@@ -339,7 +339,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/profiles?user_id=eq.{{user_id}}&select=*",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Чтение профиля своего тестового пользователя. Сверьте user_id и заполненные поля; данные другого пользователя возвращаться не должны."
           }
         },
         {
@@ -365,7 +365,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/profiles?on_conflict=user_id",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks.",
+            "description": "Создание или обновление своего профиля с тестовыми данными. Сверьте возвращённый user_id и значения full_name, avatar_shape, email и about.",
             "body": {
               "mode": "raw",
               "raw": "{\n  \"user_id\": \"{{user_id}}\",\n  \"full_name\": \"Алексей Тестовый\",\n  \"avatar_shape\": \"round\",\n  \"email\": \"qa-a@example.test\",\n  \"about\": \"Синтетические данные\"\n}",
@@ -397,7 +397,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/skills?resume_id=eq.{{resume_id}}&select=*",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Чтение навыков выбранного резюме. Проверьте resume_id и соответствие навыков и уровней данным, переданным при сохранении."
           }
         },
         {
@@ -415,7 +415,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/education?resume_id=eq.{{resume_id}}&select=*",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Чтение записей об образовании выбранного резюме. Сверьте resume_id, учебное заведение и остальные заполненные поля с исходными данными."
           }
         },
         {
@@ -433,7 +433,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/experience?resume_id=eq.{{resume_id}}&select=*",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Чтение опыта работы выбранного резюме. Сверьте resume_id, компанию, должность, период и описание с сохранёнными данными."
           }
         },
         {
@@ -451,7 +451,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/github_projects?resume_id=eq.{{resume_id}}&select=*",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Чтение GitHub-проектов выбранного резюме. Сравните записи с сохранённым разделом GitHub; если он не заполнен, ожидается пустой массив."
           }
         },
         {
@@ -469,7 +469,7 @@
               }
             ],
             "url": "{{supabase_url}}/rest/v1/manual_projects?resume_id=eq.{{resume_id}}&select=*",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks."
+            "description": "Чтение проектов, добавленных вручную. Сверьте resume_id, названия, ссылки и описания с сохранённым резюме."
           }
         }
       ]
@@ -496,7 +496,7 @@
               }
             ],
             "url": "{{supabase_url}}/functions/v1/github-repos",
-            "description": "Send manually, only against staging. Copy response values to a local environment. No scripts or automatic checks.",
+            "description": "Запрос публичных репозиториев указанного GitHub-пользователя; заранее замените демонстрационное имя. Без настроенного серверного токена возможен ответ 503 GITHUB_TOKEN_NOT_CONFIGURED — он не подтверждает успешный импорт.",
             "body": {
               "mode": "raw",
               "raw": "{\n  \"username\": \"REPLACE_WITH_OWN_DEMO_USERNAME\"\n}",
