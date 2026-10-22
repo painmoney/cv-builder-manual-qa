@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://cv-builder-qa.vercel.app/cv",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://cv-builder-qa.vercel.app/cv/manual-qa.pdf",
+    "status": 200,
+    "contentType": "application/pdf",
+    "sha256": "13ebcf9a944f9a155c64ea6249bca2d5d455046034fb8ec2ff6f155502098dbc",
+    "matchesLocal": true,
+    "bytes": 18606
+  },
+  {
+    "url": "https://github.com/painmoney/cv-builder-manual-qa",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://github.com/painmoney/saucedemo-manual-qa",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8"
+  },
+  {
+    "url": "https://github.com/painmoney/diplome-cv-builder/tree/chore/qa-staging-setup",
+    "status": 200,
+    "contentType": "text/html; charset=utf-8"
+  }
+]
