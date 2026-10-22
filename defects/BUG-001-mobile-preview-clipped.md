@@ -2,6 +2,8 @@
 
 Статус: Open. Severity: Major. Priority: P2. Воспроизводимость: 2/2, включая reload без изменения кода.
 
+Баг-трекинг: [GitHub Issue №1](https://github.com/painmoney/cv-builder-manual-qa/issues/1).
+
 ## Окружение
 
 https://cv-builder-qa.vercel.app, chore/qa-staging-setup, commit 36cdd833b299af165338e13137b2aa7c06935170; Windows 25H2 build 26200, управляемый Chromium-браузер, viewport 390×844, device emulation не использовалась. Backend только staging jerwfvhpoanoukxiyvwq.
