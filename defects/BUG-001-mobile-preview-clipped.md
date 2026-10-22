@@ -31,8 +31,3 @@ https://cv-builder-qa.vercel.app, chore/qa-staging-setup, commit 36cdd833b299af1
 
 - [Мобильный screenshot](../evidence/preview-mobile.png)
 - [Desktop Modern для сравнения](../evidence/template-modern.png)
-
-
-Связи: UI-02, [TC-14](../test-cases/TC-14.md) (выделен из исходного TC-07). Дополнительная диагностика: [измерения DOM](../evidence/raw/preview-mobile-geometry.json), [наблюдения UI-02-exploratory / UI-02-repeat](../evidence/raw/ui-observations.json).
-
-Исправление не вносилось; retest и регрессия исправления не заявляются. Публичное /cv использует отдельную адаптивную обёртку и в этот дефект не входит.
