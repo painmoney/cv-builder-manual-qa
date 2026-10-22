@@ -1,6 +1,6 @@
 # Результаты выполнения
 
-Версия 36cdd83, 22.10.2026. Ниже сохранены фактические результаты исходных 56 проверок. [Краткий итог](summary.md).
+Версия 36cdd83, 22.10.2026. Ниже — результаты 55 проверок, оставленных в портфолио после исключения проверки системного каталога. Это выборка из исходного прогона, без новых выполнений. [Краткий итог](summary.md).
 
 | ID | Статус | Фактический результат | Доказательство |
 |---|---|---|---|
@@ -48,9 +48,8 @@
 | SEC-03 | Passed | Чужой PATCH в обоих направлениях: 200 с []; title/revision/data владельцев сохранены. | [Материалы](../evidence/raw/api-observations.json) |
 | SEC-04 | Passed | Чужой DELETE в обоих направлениях: 200 с []; оба документа остаются доступны владельцам. | [Материалы](../evidence/raw/api-observations.json) |
 | SEC-05 | Passed | POST skills с фактической колонкой skill_name в чужой документ: HTTP 403, 42501 RLS. Первый запрос с неверной колонкой name дал PGRST204 и не считается RLS-проверкой. | [Материалы](../evidence/raw/api-observations.json) |
-| DB-01 | Passed | Read-only каталог: семь таблиц с RLS, avatar_shape NOT NULL default round и CHECK; PK/FK, CASCADE; обе RPC securityDefiner=false и пустой search_path. | [Материалы](../evidence/raw/schema-catalog.json) |
-| DB-02 | Passed | REST embedded relations и SQL LEFT JOIN/GROUP BY: по одной skill, education, experience и manual_project у A/B, ожидаемые title/revision и profile name. UI preview отображает те же поля. UI-документ отдельно сопоставлен с REST. | [Материалы](../evidence/raw/schema-catalog.json) |
-| DB-03 | Passed | Отдельный disposable создан через RPC, дочерние записи существовали. DELETE владельцем удалил документ; REST и SQL вернули 0 для resumes и четырёх заполненных дочерних таблиц. | [Материалы](../evidence/raw/schema-catalog.json) |
+| DB-02 | Passed | REST embedded relations и SQL LEFT JOIN/GROUP BY: по одной skill, education, experience и manual_project у A/B, ожидаемые title/revision и profile name. UI preview отображает те же поля. UI-документ отдельно сопоставлен с REST. | [Материалы](../evidence/raw/sql-resume-join.json) |
+| DB-03 | Passed | Отдельный disposable создан через RPC, дочерние записи существовали. DELETE владельцем удалил документ; REST и SQL вернули 0 для resumes и четырёх заполненных дочерних таблиц. | [Материалы](../evidence/raw/sql-cascade.json) |
 | STO-01 | Passed | Свой PNG upload успешен, публичный GET 200. Чужой upload: 403 RLS; чужой remove вернул 0 объектов, GET остался 200. Владелец удалил 1 объект. | [Материалы](../evidence/raw/api-observations.json) |
 | NET-01 | Blocked | Доступный интерфейс браузера не предоставляет переключение offline/online или перехват сети. Фактический сетевой сбой не воспроизводился; API-ошибки не выдаются за offline-проверку. | [Материалы](../evidence/raw/ui-observations.json) |
 | INT-01 | Blocked | Авторизованный запрос функции: 503 GITHUB_TOKEN_NOT_CONFIGURED. Обработка недоступности наблюдалась; успешный импорт Blocked без server token. | [Материалы](../evidence/raw/ui-observations.json) |
@@ -61,6 +60,6 @@
 | PUB-03 | Passed | Публичное /cv при viewport 390: documentWidth=375; кнопка PDF, текст и контакты доступны. Вёрстка использует отдельную адаптивную обёртку. | [Материалы](../evidence/raw/ui-observations.json) |
 | UI-02 | Failed | Modern preview при 390 px обрезан справа. Шаблон 793.7 px внутри контейнера 343.2 px с overflow:hidden. Повтор после reload воспроизвёл дефект; BUG-001. | [Материалы](../evidence/preview-mobile.png) |
 
-[Исходные SQL и результаты DB-01–DB-03](../evidence/raw/sql/README.md). Новые примеры в sql/ не выполнялись и не имеют исторических статусов.
+[Исходные SQL и результаты DB-02–DB-03](../evidence/raw/sql/README.md). Новые примеры в sql/ не выполнялись и не имеют исторических статусов.
 
 [Соответствие исходных и текущих кейсов](../test-cases/README.md) · [Матрица связей](../traceability/matrix.md)

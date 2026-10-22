@@ -48,7 +48,6 @@
 | SEC-03 | [TC-11](../test-cases/TC-11.md) | Passed | — |
 | SEC-04 | [TC-11](../test-cases/TC-11.md) | Passed | — |
 | SEC-05 | [TC-11](../test-cases/TC-11.md) | Passed | — |
-| DB-01 | [TC-12](../test-cases/TC-12.md) | Passed | — |
 | DB-02 | [TC-12](../test-cases/TC-12.md) | Passed | — |
 | DB-03 | [TC-16](../test-cases/TC-16.md) | Passed | — |
 | STO-01 | [TC-17](../test-cases/TC-17.md) | Passed | — |
