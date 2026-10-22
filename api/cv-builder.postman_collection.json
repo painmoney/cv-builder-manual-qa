@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "CV Builder — Manual QA staging",
-    "description": "Manual requests only. No tests/pre-request scripts. Credentials and identifiers belong in local unsynced environments or Vault. Never use service-role or production.",
+    "description": "Коллекция запросов для проверки API CV Builder на тестовом стенде. Запросы выполняются вручную, автоматических тестов нет. Пароли и токены хранятся отдельно от коллекции. Не использовать для production.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "variable": [
