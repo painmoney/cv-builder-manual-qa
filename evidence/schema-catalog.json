@@ -1,0 +1,295 @@
+{
+  "rls": [
+    {
+      "table": "resumes",
+      "enabled": true
+    },
+    {
+      "table": "skills",
+      "enabled": true
+    },
+    {
+      "table": "education",
+      "enabled": true
+    },
+    {
+      "table": "experience",
+      "enabled": true
+    },
+    {
+      "table": "github_projects",
+      "enabled": true
+    },
+    {
+      "table": "manual_projects",
+      "enabled": true
+    },
+    {
+      "table": "profiles",
+      "enabled": true
+    }
+  ],
+  "rpc": [
+    {
+      "name": "create_resume_full",
+      "settings": [
+        "search_path=\"\""
+      ],
+      "securityDefiner": false
+    },
+    {
+      "name": "save_resume_full",
+      "settings": [
+        "search_path=\"\""
+      ],
+      "securityDefiner": false
+    }
+  ],
+  "avatar": [
+    {
+      "column": "avatar_shape",
+      "default": "'round'::text",
+      "nullable": "NO"
+    }
+  ],
+  "columns": [
+    {
+      "type": "bigint",
+      "table": "education",
+      "column": "id"
+    },
+    {
+      "type": "uuid",
+      "table": "education",
+      "column": "resume_id"
+    },
+    {
+      "type": "text",
+      "table": "education",
+      "column": "institution"
+    },
+    {
+      "type": "text",
+      "table": "education",
+      "column": "institute"
+    },
+    {
+      "type": "text",
+      "table": "education",
+      "column": "department"
+    },
+    {
+      "type": "text",
+      "table": "education",
+      "column": "program"
+    },
+    {
+      "type": "text",
+      "table": "education",
+      "column": "degree"
+    },
+    {
+      "type": "text",
+      "table": "education",
+      "column": "years"
+    },
+    {
+      "type": "bigint",
+      "table": "experience",
+      "column": "id"
+    },
+    {
+      "type": "uuid",
+      "table": "experience",
+      "column": "resume_id"
+    },
+    {
+      "type": "text",
+      "table": "experience",
+      "column": "company"
+    },
+    {
+      "type": "text",
+      "table": "experience",
+      "column": "position"
+    },
+    {
+      "type": "text",
+      "table": "experience",
+      "column": "period"
+    },
+    {
+      "type": "text",
+      "table": "experience",
+      "column": "description"
+    },
+    {
+      "type": "uuid",
+      "table": "manual_projects",
+      "column": "id"
+    },
+    {
+      "type": "uuid",
+      "table": "manual_projects",
+      "column": "resume_id"
+    },
+    {
+      "type": "text",
+      "table": "manual_projects",
+      "column": "name"
+    },
+    {
+      "type": "text",
+      "table": "manual_projects",
+      "column": "role"
+    },
+    {
+      "type": "text",
+      "table": "manual_projects",
+      "column": "description"
+    },
+    {
+      "type": "text",
+      "table": "manual_projects",
+      "column": "tech_stack"
+    },
+    {
+      "type": "text",
+      "table": "manual_projects",
+      "column": "link"
+    },
+    {
+      "type": "text",
+      "table": "manual_projects",
+      "column": "period"
+    },
+    {
+      "type": "integer",
+      "table": "manual_projects",
+      "column": "position"
+    },
+    {
+      "type": "text",
+      "table": "manual_projects",
+      "column": "source_id"
+    },
+    {
+      "type": "bigint",
+      "table": "skills",
+      "column": "id"
+    },
+    {
+      "type": "uuid",
+      "table": "skills",
+      "column": "resume_id"
+    },
+    {
+      "type": "text",
+      "table": "skills",
+      "column": "skill_name"
+    },
+    {
+      "type": "smallint",
+      "table": "skills",
+      "column": "level"
+    }
+  ],
+  "constraints": [
+    {
+      "name": "resumes_pkey",
+      "type": "p",
+      "table": "resumes",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "profiles_pkey",
+      "type": "p",
+      "table": "profiles",
+      "definition": "PRIMARY KEY (user_id)"
+    },
+    {
+      "name": "skills_pkey",
+      "type": "p",
+      "table": "skills",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "education_pkey",
+      "type": "p",
+      "table": "education",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "experience_pkey",
+      "type": "p",
+      "table": "experience",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "github_projects_pkey",
+      "type": "p",
+      "table": "github_projects",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "manual_projects_position_nonnegative",
+      "type": "c",
+      "table": "manual_projects",
+      "definition": "CHECK ((\"position\" >= 0))"
+    },
+    {
+      "name": "manual_projects_pkey",
+      "type": "p",
+      "table": "manual_projects",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "name": "manual_projects_resume_position_unique",
+      "type": "u",
+      "table": "manual_projects",
+      "definition": "UNIQUE (resume_id, \"position\")"
+    },
+    {
+      "name": "manual_projects_resume_id_fkey",
+      "type": "f",
+      "table": "manual_projects",
+      "definition": "FOREIGN KEY (resume_id) REFERENCES resumes(id) ON DELETE CASCADE"
+    },
+    {
+      "name": "resumes_user_id_fkey",
+      "type": "f",
+      "table": "resumes",
+      "definition": "FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE"
+    },
+    {
+      "name": "skills_resume_id_fkey",
+      "type": "f",
+      "table": "skills",
+      "definition": "FOREIGN KEY (resume_id) REFERENCES resumes(id) ON DELETE CASCADE"
+    },
+    {
+      "name": "education_resume_id_fkey",
+      "type": "f",
+      "table": "education",
+      "definition": "FOREIGN KEY (resume_id) REFERENCES resumes(id) ON DELETE CASCADE"
+    },
+    {
+      "name": "experience_resume_id_fkey",
+      "type": "f",
+      "table": "experience",
+      "definition": "FOREIGN KEY (resume_id) REFERENCES resumes(id) ON DELETE CASCADE"
+    },
+    {
+      "name": "github_projects_resume_id_fkey",
+      "type": "f",
+      "table": "github_projects",
+      "definition": "FOREIGN KEY (resume_id) REFERENCES resumes(id) ON DELETE CASCADE"
+    },
+    {
+      "name": "profiles_avatar_shape_check",
+      "type": "c",
+      "table": "profiles",
+      "definition": "CHECK ((avatar_shape = ANY (ARRAY['round'::text, 'square'::text])))"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+select jsonb_build_object(
+'columns',(select jsonb_agg(jsonb_build_object('table',table_name,'column',column_name,'type',data_type) order by table_name,ordinal_position) from information_schema.columns where table_schema='public' and table_name in ('skills','manual_projects','education','experience')),
+'rls',(select jsonb_agg(jsonb_build_object('table',c.relname,'enabled',c.relrowsecurity)) from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relkind='r'),
+'avatar',(select jsonb_agg(jsonb_build_object('column',column_name,'nullable',is_nullable,'default',column_default)) from information_schema.columns where table_schema='public' and table_name='profiles' and column_name='avatar_shape'),
+'constraints',(select jsonb_agg(jsonb_build_object('table',c.conrelid::regclass::text,'name',c.conname,'type',c.contype,'definition',pg_get_constraintdef(c.oid))) from pg_constraint c join pg_namespace n on n.oid=c.connamespace where n.nspname='public'),
+'rpc',(select jsonb_agg(jsonb_build_object('name',p.proname,'securityDefiner',p.prosecdef,'settings',p.proconfig)) from pg_proc p join pg_namespace n on n.oid=p.pronamespace where n.nspname='public' and p.proname in ('create_resume_full','save_resume_full'))) as catalog;
