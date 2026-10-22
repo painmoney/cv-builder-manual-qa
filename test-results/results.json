@@ -18,7 +18,7 @@
       "status": "Passed",
       "actual": "Анонимная главная отображается; доступны Войти и Начать бесплатно.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "AUTH-01",
@@ -29,7 +29,7 @@
       "status": "Passed",
       "actual": "После выхода прямой /dashboard перенаправляет на /login.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "AUTH-02",
@@ -40,7 +40,7 @@
       "status": "Passed",
       "actual": "Неверный пароль: сообщение «Неверный email или пароль…», Dashboard не открывается.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "AUTH-03",
@@ -51,7 +51,7 @@
       "status": "Passed",
       "actual": "Правильный пароль открывает Dashboard; показаны только документы текущего пользователя.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "AUTH-04",
@@ -62,7 +62,7 @@
       "status": "Passed",
       "actual": "После reload Dashboard сессия остаётся авторизованной.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "AUTH-05",
@@ -73,7 +73,7 @@
       "status": "Passed",
       "actual": "Кнопка Выйти открывает /login; повторный вход в приватный маршрут требует авторизации.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "AUTH-06",
@@ -84,7 +84,7 @@
       "status": "Passed",
       "actual": "Два новых синтетических аккаунта: до подтверждения email_not_confirmed; verifyOtp signup успешен; после подтверждения password login успешен. Signup-токены сгенерированы admin.generateLink без отправки писем, /signup через UI не проверен.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "AUTH-07",
@@ -95,7 +95,7 @@
       "status": "Blocked",
       "actual": "Нет контролируемого почтового ящика/SMTP-проверки; реальное получение signup и recovery писем не выполнено.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "DOC-01",
@@ -106,7 +106,7 @@
       "status": "Passed",
       "actual": "Через Создать резюме создан документ f8c650ea-a03f-49d6-bca9-4b24265d6d7d и открыт editor.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "DOC-02",
@@ -117,7 +117,7 @@
       "status": "Passed",
       "actual": "Переименование в Dashboard: QA browser portfolio → QA browser renamed. REST подтвердил новое название.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "DOC-03",
@@ -128,7 +128,7 @@
       "status": "Passed",
       "actual": "Создать копию создал 9e16356a-c5b0-4c39-b949-f680e0551acc с суффиксом (копия), revision=1. Имя, возраст 100 и about совпали с оригиналом.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "DOC-04",
@@ -139,7 +139,7 @@
       "status": "Passed",
       "actual": "Изменены название, имя, about и возраст; после Сохранено REST вернул эти значения. После переименования revision=7.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "DOC-05",
@@ -150,7 +150,7 @@
       "status": "Passed",
       "actual": "После полного reload копии восстановлены имя QA Portfolio Browser, возраст 100 и сохранённый about. Первый снимок во время Загрузка резюме не считается подтверждением; используется DOC-05-confirmed.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "DOC-06",
@@ -161,7 +161,7 @@
       "status": "Passed",
       "actual": "Копия удалена через меню и подтверждение UI; REST для её ID вернул []; оригинал остался.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "VAL-01",
@@ -172,7 +172,7 @@
       "status": "Passed",
       "actual": "not-an-email отклонён: Некорректный email и Проверьте поля. Ложного Сохранено не показано.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "VAL-02",
@@ -183,7 +183,7 @@
       "status": "Passed",
       "actual": "Возраст 13 отклонён: Укажите целый возраст от 14 до 100 лет.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "VAL-03",
@@ -194,7 +194,7 @@
       "status": "Passed",
       "actual": "Возраст 14 принят, показано Сохранено.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "VAL-04",
@@ -205,7 +205,7 @@
       "status": "Passed",
       "actual": "Возраст 100 принят; после reload и в REST сохранено 100.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "VAL-05",
@@ -216,7 +216,7 @@
       "status": "Passed",
       "actual": "Возраст 101 отклонён с ошибкой поля.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "TPL-01",
@@ -227,7 +227,7 @@
       "status": "Passed",
       "actual": "Минималистичный: имя, about, React, опыт, образование, проект отображаются.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "TPL-02",
@@ -238,7 +238,7 @@
       "status": "Passed",
       "actual": "Академический: те же данные отображаются в двух колонках.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "TPL-03",
@@ -249,7 +249,7 @@
       "status": "Passed",
       "actual": "GitHub-стиль: те же данные отображаются в тёмном шаблоне.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "TPL-04",
@@ -260,7 +260,7 @@
       "status": "Passed",
       "actual": "Классический ATS: те же данные отображаются в одноколоночном шаблоне.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "TPL-05",
@@ -271,7 +271,7 @@
       "status": "Passed",
       "actual": "Современный IT: те же данные отображаются; desktop screenshot сохранён.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "EXP-01",
@@ -293,7 +293,7 @@
       "status": "Passed",
       "actual": "Штатная кнопка скачала DOCX; контейнер и абзацы успешно разобраны python-docx, данные совпадают. Визуальная совместимость Word/LibreOffice НЕ проверена: LibreOffice отсутствует. Непроверенный бинарный DOCX в публичный набор не включён; сохранён текстовый разбор.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/export-inspection.json"
+      "evidence": "../evidence/raw/export-inspection.json"
     },
     {
       "id": "EXP-03",
@@ -304,7 +304,7 @@
       "status": "Passed",
       "actual": "Штатная кнопка скачала Markdown; имя, about, React, опыт, образование, ссылка проекта присутствуют.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/export-inspection.json"
+      "evidence": "../evidence/raw/export-inspection.json"
     },
     {
       "id": "UI-01",
@@ -315,7 +315,7 @@
       "status": "Passed",
       "actual": "Главная и editor проверены при viewport 390×844; documentWidth=375, основные действия доступны. Это эмуляция viewport, не физический телефон.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "API-01",
@@ -326,7 +326,7 @@
       "status": "Passed",
       "actual": "GET своего документа: 200 application/json, один объект с ожидаемым ID, title, revision и data.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-02",
@@ -337,7 +337,7 @@
       "status": "Passed",
       "actual": "create_resume_full для A и B: 200, новый ID и out_revision=1.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-03",
@@ -348,7 +348,7 @@
       "status": "Passed",
       "actual": "Повтор create с тем же UUID вернул существующую revision. Снимки API-03-before/after подтверждают одинаковые title, revision и data, без перезаписи.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-04",
@@ -359,7 +359,7 @@
       "status": "Passed",
       "actual": "save_resume_full с expected_revision=1: 200, out_revision=2.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-05",
@@ -370,7 +370,7 @@
       "status": "Passed",
       "actual": "Save с устаревшей revision=1: HTTP 400, code P1005 REVISION_CONFLICT. Это ожидаемая защита, не дефект и не HTTP 409.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-06",
@@ -381,7 +381,7 @@
       "status": "Passed",
       "actual": "not-uuid: HTTP 400, code 22P02.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-07",
@@ -392,7 +392,7 @@
       "status": "Passed",
       "actual": "Отсутствует p_data: HTTP 404, PGRST202 — сигнатура RPC не найдена.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-08",
@@ -403,7 +403,7 @@
       "status": "Passed",
       "actual": "p_expected_revision=not-integer: HTTP 400, 22P02.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-09",
@@ -414,7 +414,7 @@
       "status": "Passed",
       "actual": "Без пользовательского JWT: HTTP 401, 42501 permission denied.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-10",
@@ -425,7 +425,7 @@
       "status": "Passed",
       "actual": "Невалидный JWT: HTTP 401, PGRST301.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "API-11",
@@ -436,7 +436,7 @@
       "status": "Passed",
       "actual": "PATCH своего title: 200, QA portfolio A patched читается владельцем. Это дополнительный REST-запрос, а не путь сохранения редактора; нормализация RPC при PATCH не выполняется.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "SEC-01",
@@ -447,7 +447,7 @@
       "status": "Passed",
       "actual": "A→B и B→A GET: 200 с []. В браузере прямой чужой editor в обоих направлениях показывает отсутствие доступа.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "SEC-02",
@@ -458,7 +458,7 @@
       "status": "Passed",
       "actual": "Чужой save RPC в обоих направлениях: HTTP 400 P1004; чтение владельцами подтвердило сохранность.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "SEC-03",
@@ -469,7 +469,7 @@
       "status": "Passed",
       "actual": "Чужой PATCH в обоих направлениях: 200 с []; title/revision/data владельцев сохранены.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "SEC-04",
@@ -480,7 +480,7 @@
       "status": "Passed",
       "actual": "Чужой DELETE в обоих направлениях: 200 с []; оба документа остаются доступны владельцам.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "SEC-05",
@@ -491,7 +491,7 @@
       "status": "Passed",
       "actual": "POST skills с фактической колонкой skill_name в чужой документ: HTTP 403, 42501 RLS. Первый запрос с неверной колонкой name дал PGRST204 и не считается RLS-проверкой.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "DB-01",
@@ -502,7 +502,7 @@
       "status": "Passed",
       "actual": "Read-only каталог: семь таблиц с RLS, avatar_shape NOT NULL default round и CHECK; PK/FK, CASCADE; обе RPC securityDefiner=false и пустой search_path.",
       "method": "Read-only SQL + пользовательский HTTP API",
-      "evidence": "../evidence/schema-catalog.json; ../evidence/sql-resume-join.json; ../evidence/sql-cascade.json"
+      "evidence": "../evidence/raw/schema-catalog.json; ../evidence/raw/sql-resume-join.json; ../evidence/raw/sql-cascade.json"
     },
     {
       "id": "DB-02",
@@ -513,7 +513,7 @@
       "status": "Passed",
       "actual": "REST embedded relations и SQL LEFT JOIN/GROUP BY: по одной skill, education, experience и manual_project у A/B, ожидаемые title/revision и profile name. UI preview отображает те же поля. UI-документ отдельно сопоставлен с REST.",
       "method": "Read-only SQL + пользовательский HTTP API",
-      "evidence": "../evidence/schema-catalog.json; ../evidence/sql-resume-join.json; ../evidence/sql-cascade.json"
+      "evidence": "../evidence/raw/schema-catalog.json; ../evidence/raw/sql-resume-join.json; ../evidence/raw/sql-cascade.json"
     },
     {
       "id": "DB-03",
@@ -524,7 +524,7 @@
       "status": "Passed",
       "actual": "Отдельный disposable создан через RPC, дочерние записи существовали. DELETE владельцем удалил документ; REST и SQL вернули 0 для resumes и четырёх заполненных дочерних таблиц.",
       "method": "Read-only SQL + пользовательский HTTP API",
-      "evidence": "../evidence/schema-catalog.json; ../evidence/sql-resume-join.json; ../evidence/sql-cascade.json"
+      "evidence": "../evidence/raw/schema-catalog.json; ../evidence/raw/sql-resume-join.json; ../evidence/raw/sql-cascade.json"
     },
     {
       "id": "STO-01",
@@ -535,7 +535,7 @@
       "status": "Passed",
       "actual": "Свой PNG upload успешен, публичный GET 200. Чужой upload: 403 RLS; чужой remove вернул 0 объектов, GET остался 200. Владелец удалил 1 объект.",
       "method": "Node.js fetch / Supabase JS; для SEC также браузер",
-      "evidence": "../evidence/api-observations.json"
+      "evidence": "../evidence/raw/api-observations.json"
     },
     {
       "id": "NET-01",
@@ -546,7 +546,7 @@
       "status": "Blocked",
       "actual": "Доступный интерфейс браузера не предоставляет переключение offline/online или перехват сети. Фактический сетевой сбой не воспроизводился; API-ошибки не выдаются за offline-проверку.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "INT-01",
@@ -557,7 +557,7 @@
       "status": "Blocked",
       "actual": "Авторизованный запрос функции: 503 GITHUB_TOKEN_NOT_CONFIGURED. Обработка недоступности наблюдалась; успешный импорт Blocked без server token.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "INT-02",
@@ -568,7 +568,7 @@
       "status": "Blocked",
       "actual": "Google/GitHub OAuth не настроены в staging; успешный OAuth-вход Blocked.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "INT-03",
@@ -579,7 +579,7 @@
       "status": "Blocked",
       "actual": "Нет авторизованного Puter-аккаунта; генерация и её лимиты не проверены.",
       "method": "Программное управление браузером",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "PUB-01",
@@ -590,7 +590,7 @@
       "status": "Passed",
       "actual": "После logout A/B прямой /cv и reload показывают согласованное резюме без login/editor; GET 200 text/html.",
       "method": "Управление браузером + HTTP / PDF inspection",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "PUB-02",
@@ -601,7 +601,7 @@
       "status": "Passed",
       "actual": "Прямой /cv/manual-qa.pdf: 200 application/pdf, 17415 bytes. PDF получен штатным Classic export CV Builder, 1 страница A4; кириллица и переносы просмотрены.",
       "method": "Управление браузером + HTTP / PDF inspection",
-      "evidence": "../evidence/pub-02-http.json"
+      "evidence": "../evidence/raw/pub-02-http.json"
     },
     {
       "id": "PUB-03",
@@ -612,7 +612,7 @@
       "status": "Passed",
       "actual": "Публичное /cv при viewport 390: documentWidth=375; кнопка PDF, текст и контакты доступны. Вёрстка использует отдельную адаптивную обёртку.",
       "method": "Управление браузером + HTTP / PDF inspection",
-      "evidence": "../evidence/ui-observations.json"
+      "evidence": "../evidence/raw/ui-observations.json"
     },
     {
       "id": "UI-02",

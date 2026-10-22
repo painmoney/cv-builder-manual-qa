@@ -1,1 +1,21 @@
-select 'resumes' as relation,count(*) as remaining from public.resumes where id='7b4193bb-cc14-4a37-ba5f-0d7777db13a0' union all select 'skills',count(*) from public.skills where resume_id='7b4193bb-cc14-4a37-ba5f-0d7777db13a0' union all select 'education',count(*) from public.education where resume_id='7b4193bb-cc14-4a37-ba5f-0d7777db13a0' union all select 'experience',count(*) from public.experience where resume_id='7b4193bb-cc14-4a37-ba5f-0d7777db13a0' union all select 'manual_projects',count(*) from public.manual_projects where resume_id='7b4193bb-cc14-4a37-ba5f-0d7777db13a0';
+-- Проверка отсутствия родителя и зависимостей после пользовательского DELETE.
+-- Исторический временный UUID; для воспроизведения использовать новый.
+SELECT 'resumes' AS relation, COUNT(*) AS remaining
+FROM public.resumes
+WHERE id = '7b4193bb-cc14-4a37-ba5f-0d7777db13a0'
+UNION ALL
+SELECT 'skills', COUNT(*)
+FROM public.skills
+WHERE resume_id = '7b4193bb-cc14-4a37-ba5f-0d7777db13a0'
+UNION ALL
+SELECT 'education', COUNT(*)
+FROM public.education
+WHERE resume_id = '7b4193bb-cc14-4a37-ba5f-0d7777db13a0'
+UNION ALL
+SELECT 'experience', COUNT(*)
+FROM public.experience
+WHERE resume_id = '7b4193bb-cc14-4a37-ba5f-0d7777db13a0'
+UNION ALL
+SELECT 'manual_projects', COUNT(*)
+FROM public.manual_projects
+WHERE resume_id = '7b4193bb-cc14-4a37-ba5f-0d7777db13a0';
