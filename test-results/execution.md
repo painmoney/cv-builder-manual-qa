@@ -1,65 +1,67 @@
-# Результаты выполнения
+# Результаты проверок
 
-Версия 36cdd83, 22.10.2026. Ниже приведены результаты 55 проверок технического прогона. [Краткий итог](summary.md).
+55 сценариев; версия приложения 36cdd83, технический прогон 22.10.2026. Новых проверок приложения не выполнялось.
 
-| ID | Статус | Фактический результат | Доказательство |
+Passed — результат подтверждается приведёнными материалами в указанном объёме. «Не подтверждено» — в записи прогона есть результат, но сохранённых материалов недостаточно для всего сценария; это не Failed и не новое выполнение. Blocked — сценарий не удалось выполнить.
+
+| ID | Статус | Записанный результат / что подтверждено | Материалы |
 |---|---|---|---|
-| WEB-01 | Passed | Анонимная главная отображается; доступны Войти и Начать бесплатно. | [Материалы](../evidence/raw/ui-observations.json) |
-| AUTH-01 | Passed | После выхода прямой /dashboard перенаправляет на /login. | [Материалы](../evidence/raw/ui-observations.json) |
-| AUTH-02 | Passed | Неверный пароль: сообщение «Неверный email или пароль…», Dashboard не открывается. | [Материалы](../evidence/raw/ui-observations.json) |
-| AUTH-03 | Passed | Правильный пароль открывает Dashboard; показаны только документы текущего пользователя. | [Материалы](../evidence/raw/ui-observations.json) |
-| AUTH-04 | Passed | После reload Dashboard сессия остаётся авторизованной. | [Материалы](../evidence/raw/ui-observations.json) |
-| AUTH-05 | Passed | Кнопка Выйти открывает /login; повторный вход в приватный маршрут требует авторизации. | [Материалы](../evidence/raw/ui-observations.json) |
-| AUTH-06 | Passed | Два новых синтетических аккаунта: до подтверждения email_not_confirmed; verifyOtp signup успешен; после подтверждения password login успешен. Signup-токены сгенерированы admin.generateLink без отправки писем, /signup через UI не проверен. | [Материалы](../evidence/raw/api-observations.json) |
-| AUTH-07 | Blocked | Нет контролируемого почтового ящика/SMTP-проверки; реальное получение signup и recovery писем не выполнено. | [Материалы](../evidence/raw/ui-observations.json) |
-| DOC-01 | Passed | Через Создать резюме создан документ f8c650ea-a03f-49d6-bca9-4b24265d6d7d и открыт editor. | [Материалы](../evidence/raw/ui-observations.json) |
-| DOC-02 | Passed | Переименование в Dashboard: QA browser portfolio → QA browser renamed. REST подтвердил новое название. | [Материалы](../evidence/raw/ui-observations.json) |
-| DOC-03 | Passed | Создать копию создал 9e16356a-c5b0-4c39-b949-f680e0551acc с суффиксом (копия), revision=1. Имя, возраст 100 и about совпали с оригиналом. | [Материалы](../evidence/raw/ui-observations.json) |
-| DOC-04 | Passed | Изменены название, имя, about и возраст; после Сохранено REST вернул эти значения. После переименования revision=7. | [Материалы](../evidence/raw/ui-observations.json) |
-| DOC-05 | Passed | После полного reload копии восстановлены имя QA Portfolio Browser, возраст 100 и сохранённый about. Первый снимок во время Загрузка резюме не считается подтверждением; используется DOC-05-confirmed. | [Материалы](../evidence/raw/ui-observations.json) |
-| DOC-06 | Passed | Копия удалена через меню и подтверждение UI; REST для её ID вернул []; оригинал остался. | [Материалы](../evidence/raw/ui-observations.json) |
-| VAL-01 | Passed | not-an-email отклонён: Некорректный email и Проверьте поля. Ложного Сохранено не показано. | [Материалы](../evidence/raw/ui-observations.json) |
-| VAL-02 | Passed | Возраст 13 отклонён: Укажите целый возраст от 14 до 100 лет. | [Материалы](../evidence/raw/ui-observations.json) |
-| VAL-03 | Passed | Возраст 14 принят, показано Сохранено. | [Материалы](../evidence/raw/ui-observations.json) |
-| VAL-04 | Passed | Возраст 100 принят; после reload и в REST сохранено 100. | [Материалы](../evidence/raw/ui-observations.json) |
-| VAL-05 | Passed | Возраст 101 отклонён с ошибкой поля. | [Материалы](../evidence/raw/ui-observations.json) |
-| TPL-01 | Passed | Минималистичный: имя, about, React, опыт, образование, проект отображаются. | [Материалы](../evidence/raw/ui-observations.json) |
-| TPL-02 | Passed | Академический: те же данные отображаются в двух колонках. | [Материалы](../evidence/raw/ui-observations.json) |
-| TPL-03 | Passed | GitHub-стиль: те же данные отображаются в тёмном шаблоне. | [Материалы](../evidence/raw/ui-observations.json) |
-| TPL-04 | Passed | Классический ATS: те же данные отображаются в одноколоночном шаблоне. | [Материалы](../evidence/raw/ui-observations.json) |
-| TPL-05 | Passed | Современный IT: те же данные отображаются; desktop screenshot сохранён. | [Материалы](../evidence/raw/ui-observations.json) |
-| EXP-01 | Passed | Штатная кнопка скачала Modern PDF: 1 страница A4, текст извлечён pypdf, PNG просмотрен визуально; имя и все заполненные блоки присутствуют. | [Материалы](../evidence/export-modern.png) |
-| EXP-02 | Passed | Штатная кнопка скачала DOCX; контейнер и абзацы успешно разобраны python-docx, данные совпадают. Визуальная совместимость Word/LibreOffice НЕ проверена: LibreOffice отсутствует. Непроверенный бинарный DOCX в публичный набор не включён; сохранён текстовый разбор. | [Материалы](../evidence/raw/export-inspection.json) |
-| EXP-03 | Passed | Штатная кнопка скачала Markdown; имя, about, React, опыт, образование, ссылка проекта присутствуют. | [Материалы](../evidence/raw/export-inspection.json) |
-| UI-01 | Passed | Главная и editor проверены при viewport 390×844; documentWidth=375, основные действия доступны. Это эмуляция viewport, не физический телефон. | [Материалы](../evidence/raw/ui-observations.json) |
-| API-01 | Passed | GET своего документа: 200 application/json, один объект с ожидаемым ID, title, revision и data. | [Материалы](../evidence/raw/api-observations.json) |
-| API-02 | Passed | create_resume_full для A и B: 200, новый ID и out_revision=1. | [Материалы](../evidence/raw/api-observations.json) |
-| API-03 | Passed | Повтор create с тем же UUID вернул существующую revision. Снимки API-03-before/after подтверждают одинаковые title, revision и data, без перезаписи. | [Материалы](../evidence/raw/api-observations.json) |
-| API-04 | Passed | save_resume_full с expected_revision=1: 200, out_revision=2. | [Материалы](../evidence/raw/api-observations.json) |
-| API-05 | Passed | Save с устаревшей revision=1: HTTP 400, code P1005 REVISION_CONFLICT. Это ожидаемая защита, не дефект и не HTTP 409. | [Материалы](../evidence/raw/api-observations.json) |
-| API-06 | Passed | not-uuid: HTTP 400, code 22P02. | [Материалы](../evidence/raw/api-observations.json) |
-| API-07 | Passed | Отсутствует p_data: HTTP 404, PGRST202 — сигнатура RPC не найдена. | [Материалы](../evidence/raw/api-observations.json) |
-| API-08 | Passed | p_expected_revision=not-integer: HTTP 400, 22P02. | [Материалы](../evidence/raw/api-observations.json) |
-| API-09 | Passed | Без пользовательского JWT: HTTP 401, 42501 permission denied. | [Материалы](../evidence/raw/api-observations.json) |
-| API-10 | Passed | Невалидный JWT: HTTP 401, PGRST301. | [Материалы](../evidence/raw/api-observations.json) |
-| API-11 | Passed | PATCH своего title: 200, QA portfolio A patched читается владельцем. Это дополнительный REST-запрос, а не путь сохранения редактора; нормализация RPC при PATCH не выполняется. | [Материалы](../evidence/raw/api-observations.json) |
-| SEC-01 | Passed | A→B и B→A GET: 200 с []. В браузере прямой чужой editor в обоих направлениях показывает отсутствие доступа. | [Материалы](../evidence/raw/api-observations.json) |
-| SEC-02 | Passed | Чужой save RPC в обоих направлениях: HTTP 400 P1004; чтение владельцами подтвердило сохранность. | [Материалы](../evidence/raw/api-observations.json) |
-| SEC-03 | Passed | Чужой PATCH в обоих направлениях: 200 с []; title/revision/data владельцев сохранены. | [Материалы](../evidence/raw/api-observations.json) |
-| SEC-04 | Passed | Чужой DELETE в обоих направлениях: 200 с []; оба документа остаются доступны владельцам. | [Материалы](../evidence/raw/api-observations.json) |
-| SEC-05 | Passed | POST skills с фактической колонкой skill_name в чужой документ: HTTP 403, 42501 RLS. Первый запрос с неверной колонкой name дал PGRST204 и не считается RLS-проверкой. | [Материалы](../evidence/raw/api-observations.json) |
-| DB-02 | Passed | REST embedded relations и SQL LEFT JOIN/GROUP BY: по одной skill, education, experience и manual_project у A/B, ожидаемые title/revision и profile name. UI preview отображает те же поля. UI-документ отдельно сопоставлен с REST. | [Связи таблиц](../evidence/raw/sql-resume-join.json), [ответы API: DB-02-corrected](../evidence/raw/api-observations.json) |
-| DB-03 | Passed | Отдельный disposable создан через RPC, дочерние записи существовали. DELETE владельцем удалил документ; REST и SQL вернули 0 для resumes и четырёх заполненных дочерних таблиц. | [Оставшиеся записи](../evidence/raw/sql-cascade.json), [API: DB-03-create/before/delete/after](../evidence/raw/api-observations.json) |
-| STO-01 | Passed | Свой PNG upload успешен, публичный GET 200. Чужой upload: 403 RLS; чужой remove вернул 0 объектов, GET остался 200. Владелец удалил 1 объект. | [Материалы](../evidence/raw/api-observations.json) |
-| NET-01 | Blocked | Доступный интерфейс браузера не предоставляет переключение offline/online или перехват сети. Фактический сетевой сбой не воспроизводился; API-ошибки не выдаются за offline-проверку. | [Материалы](../evidence/raw/ui-observations.json) |
-| INT-01 | Blocked | Авторизованный запрос функции: 503 GITHUB_TOKEN_NOT_CONFIGURED. Обработка недоступности наблюдалась; успешный импорт Blocked без server token. | [Материалы](../evidence/raw/ui-observations.json) |
-| INT-02 | Blocked | Google/GitHub OAuth не настроены в staging; успешный OAuth-вход Blocked. | [Материалы](../evidence/raw/ui-observations.json) |
-| INT-03 | Blocked | Нет авторизованного Puter-аккаунта; генерация и её лимиты не проверены. | [Материалы](../evidence/raw/ui-observations.json) |
-| PUB-01 | Passed | После logout A/B прямой /cv и reload показывают согласованное резюме без login/editor; GET 200 text/html. | [Материалы](../evidence/raw/ui-observations.json) |
-| PUB-02 | Passed | Прямой /cv/manual-qa.pdf: 200 application/pdf, 17415 bytes. PDF получен штатным Classic export CV Builder, 1 страница A4; кириллица и переносы просмотрены. | [Материалы](../evidence/raw/pub-02-http.json) |
-| PUB-03 | Passed | Публичное /cv при viewport 390: documentWidth=375; кнопка PDF, текст и контакты доступны. Вёрстка использует отдельную адаптивную обёртку. | [Материалы](../evidence/raw/ui-observations.json) |
-| UI-02 | Failed | Modern preview при 390 px обрезан справа. Шаблон 793.7 px внутри контейнера 343.2 px с overflow:hidden. Повтор после reload воспроизвёл дефект; BUG-001. | [Материалы](../evidence/preview-mobile.png) |
+| WEB-01 | Passed | Главная страница содержит заголовок приложения, кнопки входа и начала работы. | [Главная](../evidence/home-mobile.png) |
+| AUTH-01 | Не подтверждено | После выхода прямой /dashboard перенаправляет на /login. | — |
+| AUTH-02 | Не подтверждено | Неверный пароль: сообщение «Неверный email или пароль…», Dashboard не открывается. | — |
+| AUTH-03 | Не подтверждено | Правильный пароль открывает Dashboard; показаны только документы текущего пользователя. | — |
+| AUTH-04 | Не подтверждено | После reload Dashboard сессия остаётся авторизованной. | — |
+| AUTH-05 | Не подтверждено | Кнопка Выйти открывает /login; повторный вход в приватный маршрут требует авторизации. | — |
+| AUTH-06 | Не подтверждено | Два новых синтетических аккаунта: до подтверждения email_not_confirmed; verifyOtp signup успешен; после подтверждения password login успешен. Signup-токены сгенерированы admin.generateLink без отправки писем, /signup через UI не проверен. | — |
+| AUTH-07 | Blocked | Нет контролируемого почтового ящика/SMTP-проверки; реальное получение signup и recovery писем не выполнено. | [Причина блокировки](summary.md#что-не-удалось-проверить) |
+| DOC-01 | Не подтверждено | Через Создать резюме создан документ f8c650ea-a03f-49d6-bca9-4b24265d6d7d и открыт editor. | — |
+| DOC-02 | Не подтверждено | Переименование в Dashboard: QA browser portfolio → QA browser renamed. REST подтвердил новое название. | — |
+| DOC-03 | Не подтверждено | Создать копию создал 9e16356a-c5b0-4c39-b949-f680e0551acc с суффиксом (копия), revision=1. Имя, возраст 100 и about совпали с оригиналом. | — |
+| DOC-04 | Не подтверждено | Изменены название, имя, about и возраст; после Сохранено REST вернул эти значения. После переименования revision=7. | — |
+| DOC-05 | Не подтверждено | В записи прогона указано восстановление сохранённых полей после обновления страницы; достаточных материалов нет. | — |
+| DOC-06 | Не подтверждено | Копия удалена через меню и подтверждение UI; REST для её ID вернул []; оригинал остался. | — |
+| VAL-01 | Не подтверждено | not-an-email отклонён: Некорректный email и Проверьте поля. Ложного Сохранено не показано. | — |
+| VAL-02 | Не подтверждено | Возраст 13 отклонён: Укажите целый возраст от 14 до 100 лет. | — |
+| VAL-03 | Не подтверждено | Возраст 14 принят, показано Сохранено. | — |
+| VAL-04 | Не подтверждено | Возраст 100 принят; после reload и в REST сохранено 100. | — |
+| VAL-05 | Не подтверждено | Возраст 101 отклонён с ошибкой поля. | — |
+| TPL-01 | Passed | Имя, описание, навык, опыт, образование и проект отображаются в минималистичном шаблоне. | [Скриншот](../evidence/template-minimalist.png) |
+| TPL-02 | Passed | Заполненные разделы отображаются в академическом шаблоне. | [Скриншот](../evidence/template-academic.png) |
+| TPL-03 | Passed | Заполненные разделы отображаются в шаблоне GitHub. | [Скриншот](../evidence/template-github.png) |
+| TPL-04 | Passed | Заполненные разделы отображаются в классическом шаблоне. | [Скриншот](../evidence/template-classic.png) |
+| TPL-05 | Passed | Заполненные разделы отображаются в шаблоне «Современный IT» на компьютере. | [Скриншот](../evidence/template-modern.png) |
+| EXP-01 | Passed | Сохранён PDF с именем, описанием и заполненными разделами тестового резюме. | [PDF](../evidence/export-modern.pdf), [изображение](../evidence/export-modern.png) |
+| EXP-02 | Не подтверждено | В записи прогона указан успешный разбор DOCX. Сам DOCX и подтверждение его содержимого в текущем наборе отсутствуют. | — |
+| EXP-03 | Passed | В Markdown присутствуют имя, описание, навык, опыт, образование и ссылка проекта. | [Markdown](../evidence/export.md) |
+| UI-01 | Не подтверждено | Скриншоты показывают главную и редактор при мобильной ширине; доступность всех действий и отсутствие переполнения целиком ими не подтверждаются. | [Главная](../evidence/home-mobile.png), [редактор](../evidence/editor-mobile.png) |
+| API-01 | Passed | Сохранён пример HTTP 200: один объект с ID, title и revision. Поле data в опубликованном примере опущено. | [HTTP-пример](../api/README.md#api-01--успешное-чтение-своего-документа) |
+| API-02 | Не подтверждено | create_resume_full для A и B: 200, новый ID и out_revision=1. | — |
+| API-03 | Не подтверждено | В записи прогона повторное создание с тем же UUID не изменило документ; сравнение до и после не подтверждено. | — |
+| API-04 | Не подтверждено | save_resume_full с expected_revision=1: 200, out_revision=2. | — |
+| API-05 | Не подтверждено | Save с устаревшей revision=1: HTTP 400, code P1005 REVISION_CONFLICT. Это ожидаемая защита, не дефект и не HTTP 409. | — |
+| API-06 | Passed | Для not-uuid сохранён ответ HTTP 400 с кодом 22P02. | [HTTP-пример](../api/README.md#api-06--невалидный-uuid) |
+| API-07 | Не подтверждено | Отсутствует p_data: HTTP 404, PGRST202 — сигнатура RPC не найдена. | — |
+| API-08 | Не подтверждено | p_expected_revision=not-integer: HTTP 400, 22P02. | — |
+| API-09 | Не подтверждено | Без пользовательского JWT: HTTP 401, 42501 permission denied. | — |
+| API-10 | Не подтверждено | Невалидный JWT: HTTP 401, PGRST301. | — |
+| API-11 | Не подтверждено | PATCH своего title: 200, QA portfolio A patched читается владельцем. Это дополнительный REST-запрос, а не путь сохранения редактора; нормализация RPC при PATCH не выполняется. | — |
+| SEC-01 | Не подтверждено | В HTTP-примере чужое чтение A → B вернуло 200 с []; скриншот показывает отказ в редакторе. Обратное направление и чтение владельца не подтверждены. | [HTTP-пример](../api/README.md#sec-01--чтение-чужого-документа), [скриншот](../evidence/foreign-editor-denied.png) |
+| SEC-02 | Не подтверждено | Чужой save RPC в обоих направлениях: HTTP 400 P1004; чтение владельцами подтвердило сохранность. | — |
+| SEC-03 | Не подтверждено | Чужой PATCH в обоих направлениях: 200 с []; title/revision/data владельцев сохранены. | — |
+| SEC-04 | Не подтверждено | Чужой DELETE в обоих направлениях: 200 с []; оба документа остаются доступны владельцам. | — |
+| SEC-05 | Не подтверждено | В записи прогона добавление skill_name в чужое резюме отклонено: HTTP 403, 42501 RLS; сохранённого HTTP-примера нет. | — |
+| DB-02 | Не подтверждено | SQL от 23.10.2026 подтверждает title/revision двух резюме и навык React у A. Полная сверка интерфейса, API и четырёх связанных таблиц не подтверждена. | [Список резюме](../sql/resumes.sql), [JOIN навыков](../sql/resume-skills.sql) |
+| DB-03 | Не подтверждено | В записи прогона указано удаление резюме и четырёх зависимостей. Материалов для подтверждения каскадного удаления нет. | — |
+| STO-01 | Не подтверждено | Свой PNG upload успешен, публичный GET 200. Чужой upload: 403 RLS; чужой remove вернул 0 объектов, GET остался 200. Владелец удалил 1 объект. | — |
+| NET-01 | Blocked | Доступный интерфейс браузера не предоставляет переключение offline/online или перехват сети. Фактический сетевой сбой не воспроизводился; API-ошибки не выдаются за offline-проверку. | [Причина блокировки](summary.md#что-не-удалось-проверить) |
+| INT-01 | Blocked | Авторизованный запрос функции: 503 GITHUB_TOKEN_NOT_CONFIGURED. Обработка недоступности наблюдалась; успешный импорт Blocked без server token. | [Причина блокировки](summary.md#что-не-удалось-проверить) |
+| INT-02 | Blocked | Google/GitHub OAuth не настроены в staging; успешный OAuth-вход Blocked. | [Причина блокировки](summary.md#что-не-удалось-проверить) |
+| INT-03 | Blocked | Нет авторизованного Puter-аккаунта; генерация и её лимиты не проверены. | [Причина блокировки](summary.md#что-не-удалось-проверить) |
+| PUB-01 | Не подтверждено | После logout A/B прямой /cv и reload показывают согласованное резюме без login/editor; GET 200 text/html. | — |
+| PUB-02 | Не подтверждено | Прямой /cv/manual-qa.pdf: 200 application/pdf, 17415 bytes. PDF получен штатным Classic export CV Builder, 1 страница A4; кириллица и переносы просмотрены. | — |
+| PUB-03 | Не подтверждено | Публичное /cv при viewport 390: documentWidth=375; кнопка PDF, текст и контакты доступны. Вёрстка использует отдельную адаптивную обёртку. | — |
+| UI-02 | Failed | Предпросмотр «Современный IT» обрезан справа при мобильной ширине. BUG-001 остаётся Open, Major / P2. | [BUG-001](../defects/BUG-001-mobile-preview-clipped.md), [скриншот](../evidence/preview-mobile.png) |
 
-[Четыре SQL-примера и их ответы от 23.10.2026](../sql/README.md) приведены отдельно; повторного полного прогона приложения не было.
+Четыре [SQL-запроса и их ответы от 23.10.2026](../sql/README.md) приведены отдельно и не добавлены к этим 55 сценариям.
 
-[Тест-кейсы](../test-cases/README.md) · [Матрица связей](../traceability/matrix.md)
+[Итоговый отчёт](summary.md) · [Тест-кейсы](../test-cases/README.md) · [Матрица связей](../traceability/matrix.md)
