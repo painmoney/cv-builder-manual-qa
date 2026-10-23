@@ -1,5 +1,4 @@
 -- Список названий навыков без повторов в двух тестовых резюме.
--- Пример для самостоятельного выполнения; в прогоне не запускался.
 SELECT DISTINCT skill_name
 FROM public.skills
 WHERE resume_id IN (
@@ -7,3 +6,12 @@ WHERE resume_id IN (
     '297df9da-7e02-43e3-9831-07f8e5ba2744'
 )
 ORDER BY skill_name;
+
+-- Выполнено 23.10.2026, 00:03 UTC, staging jerwfvhpoanoukxiyvwq.
+-- Через SQL-подключение Supabase; запрос завершился без ошибок.
+-- Результат (1 строк):
+-- [
+--   {
+--     "skill_name": "React"
+--   }
+-- ]
