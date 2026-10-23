@@ -9,9 +9,8 @@ GROUP BY resume_id
 HAVING COUNT(*) >= 1
 ORDER BY skills_count DESC, resume_id;
 
--- Выполнено 23.10.2026, 00:03 UTC, staging jerwfvhpoanoukxiyvwq.
--- Через SQL-подключение Supabase; запрос завершился без ошибок.
--- Результат (2 строк):
+-- Запрос делал через SQL-подключение Supabase; запрос завершился без ошибок.
+-- Результат (2 строки):
 -- [
 --   {
 --     "resume_id": "297df9da-7e02-43e3-9831-07f8e5ba2744",
