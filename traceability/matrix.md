@@ -9,7 +9,7 @@
 | WEB-01 | [TC-01](../test-cases/TC-01.md) | Passed | — |
 | AUTH-01 | [TC-01](../test-cases/TC-01.md) | Результат не представлен | — |
 | AUTH-02 | [TC-01](../test-cases/TC-01.md) | Результат не представлен | — |
-| AUTH-03 | [TC-01](../test-cases/TC-01.md) | Результат не представлен | — |
+| AUTH-03 | [TC-01](../test-cases/TC-01.md) | Passed | — |
 | AUTH-04 | [TC-02](../test-cases/TC-02.md) | Результат не представлен | — |
 | AUTH-05 | [TC-02](../test-cases/TC-02.md) | Результат не представлен | — |
 | AUTH-06 | [TC-03](../test-cases/TC-03.md) | Результат не представлен | — |
@@ -45,7 +45,7 @@
 | API-09 | [TC-11](../test-cases/TC-11.md) | Результат не представлен | — |
 | API-10 | [TC-11](../test-cases/TC-11.md) | Результат не представлен | — |
 | API-11 | [TC-09](../test-cases/TC-09.md) | Результат не представлен | — |
-| SEC-01 | [TC-11](../test-cases/TC-11.md) | Результат не представлен | — |
+| SEC-01 | [TC-11](../test-cases/TC-11.md) | Passed | — |
 | SEC-02 | [TC-11](../test-cases/TC-11.md) | Результат не представлен | — |
 | SEC-03 | [TC-11](../test-cases/TC-11.md) | Результат не представлен | — |
 | SEC-04 | [TC-11](../test-cases/TC-11.md) | Результат не представлен | — |
