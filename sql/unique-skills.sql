@@ -7,9 +7,8 @@ WHERE resume_id IN (
 )
 ORDER BY skill_name;
 
--- Выполнено 23.10.2026, 00:03 UTC, staging jerwfvhpoanoukxiyvwq.
--- Через SQL-подключение Supabase; запрос завершился без ошибок.
--- Результат (1 строк):
+-- Запрос делал через SQL-подключение Supabase; запрос завершился без ошибок.
+-- Результат (1 строка):
 -- [
 --   {
 --     "skill_name": "React"
