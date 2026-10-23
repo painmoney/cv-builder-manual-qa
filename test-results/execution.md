@@ -7,7 +7,7 @@
 | ID | Статус | Результат или причина блокировки | Материалы |
 |---|---|---|---|
 | WEB-01 | Passed | Главная страница содержит заголовок приложения, кнопки входа и начала работы. | [Главная](../evidence/home-mobile.png) |
-| AUTH-03 | Passed | Вход через API в Postman: A — HTTP 200, bearer и пользователь authenticated. Вход B выполнен автором, подтверждён доступ B к своему документу; отдельного снимка ответа входа B нет. Переход в Dashboard здесь не проверялся. | [Скриншот 01](../evidence/postman/01_AUTH_login_A_200.png); [Скриншот 05](../evidence/postman/05_SEC-01_GET_B_own_resume_200.png) |
+| AUTH-03 | Passed | Вход A и B через API в Postman: HTTP 200, token_type=bearer; на снимке A виден пользователь authenticated. Переход в Dashboard здесь не проверялся. | [Вход A](../evidence/postman/01_AUTH_login_A_200.png); [Вход B](../evidence/postman/07_AUTH_login_B_200.png) |
 | AUTH-07 | Blocked | Нет контролируемого почтового ящика/SMTP-проверки; реальное получение signup и recovery писем не выполнено. | [Причина блокировки](summary.md#что-не-удалось-проверить) |
 | TPL-01 | Passed | Имя, описание, навык, опыт, образование и проект отображаются в минималистичном шаблоне. | [Скриншот](../evidence/template-minimalist.png) |
 | TPL-02 | Passed | Заполненные разделы отображаются в академическом шаблоне. | [Скриншот](../evidence/template-academic.png) |

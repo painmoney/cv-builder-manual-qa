@@ -10,7 +10,7 @@
 
 | Проверка | Результат | Доказательства |
 |---|---|---|
-| AUTH-03 — вход по email и паролю через API | A: HTTP 200, token_type=bearer, user.role=authenticated. Вход B выполнен; отдельного снимка ответа входа нет, сохранено чтение своего документа с авторизацией B. | [Скриншот 01](../evidence/postman/01_AUTH_login_A_200.png); [Скриншот 05](../evidence/postman/05_SEC-01_GET_B_own_resume_200.png) |
+| AUTH-03 — вход по email и паролю через API | A и B: HTTP 200, token_type=bearer. На снимке A также виден user.role=authenticated; чтение своего резюме B показано отдельно. | [Вход A](../evidence/postman/01_AUTH_login_A_200.png); [Вход B](../evidence/postman/07_AUTH_login_B_200.png); [Своё резюме B](../evidence/postman/05_SEC-01_GET_B_own_resume_200.png) |
 | API-01 — своё резюме | HTTP 200, QA portfolio A patched, revision=2. | [Скриншот 02](../evidence/postman/02_API-01_GET_own_resume_A_200.png) |
 | API-06 — невалидный UUID | HTTP 400, код 22P02 для not-uuid. | [Скриншот 03](../evidence/postman/03_API-06_POST_invalid_UUID_400.png) |
 | SEC-01 — чтение A/B | Свои документы доступны владельцам; A → B и B → A возвращают HTTP 200 с пустым массивом. | [Скриншот 02](../evidence/postman/02_API-01_GET_own_resume_A_200.png); [Скриншот 04](../evidence/postman/04_SEC-01_GET_A_to_B_empty_200.png); [Скриншот 05](../evidence/postman/05_SEC-01_GET_B_own_resume_200.png); [Скриншот 06](../evidence/postman/06_SEC-01_GET_B_to_A_empty_200.png) |
